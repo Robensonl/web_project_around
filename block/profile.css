@@ -1,0 +1,62 @@
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+
+.profile__image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.profile__info {
+  text-align: left;
+}
+
+.profile__info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile__info p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.profile__edit {
+  margin-bottom: 15px;
+  background-color: #000000;
+  color: #f7f6f6;
+  border: 1px solid white;
+  padding: 5px 10px; /* Ajuste de padding */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.profile__edit:hover {
+  background-color: #333; /* Cambio de color al pasar el mouse */
+}
+
+.profile__add {
+  background-color: black; /* Fondo negro */
+  color: hsla(260, 11%, 95%, 1); /* Texto blanco */
+  border: 1px solid hsla(240, 7%, 97%, 1); /* Borde blanco */
+  font-size: 20px;
+  width: 80px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.profile__add:hover {
+  background-color: #333; /* Cambio de color al pasar el mouse */
+}

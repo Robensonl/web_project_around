@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Página web interactiva que muestra una colección de imágenes y descripciones relacionadas con tecnología, finanzas y música."
+    />
+    <meta
+      name="keywords"
+      content="tecnología, finanzas, música, desarrollo, pago, tarjetas"
+    />
+    <meta name="author" content="Robenson Louissaint" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Alrededor de los EE. UU.</title>
+    
+    <meta name="author" content="Robenson Louissaint" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./vendor/fonts.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Alrededor <span>de los EE. UU.</span></h1>
+      </header>
+
+      <main>
+        <section class="profile">
+          <img
+            src="./Images/image (23).png"
+            alt="Jacques Cousteau"
+            class="profile__image"
+          />
+          <div class="profile__info">
+            <h2 id="profileName">Jacques Cousteau</h2>
+            <p id="profileDescription">Explorador</p>
+          </div>
+          <button class="profile__edit" id="editProfile">✎</button>
+
+          <button class="profile__add">+</button>
+        </section>
+
+        <section class="cards">
+          <article class="card">
+            <img
+              src="/Images/Desarrollador.jpg"
+              alt="Desarrollador trabajando"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>Webdev</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="/Images/Bank-of-Montreal.jpg"
+              alt="Bank-of-Montreal"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>Bank of Montreal</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="/Images/bench-accounting-8D2k7a3wMKQ-unsplash.jpg"
+              alt="accounting"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>Talk with Customer</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="/Images/clay-banks-qW_k6x5OfRc-unsplash.jpg"
+              alt="Pay with a debit card"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>Pay with a debit card</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="/Images/jens-kreuter-6d3rldyNBmM-unsplash.jpg"
+              alt="Music litle"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>The litle music</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="/Images/sumup-mK6upImi-qQ-unsplash.jpg"
+              alt="Otro Lugar 2"
+              class="card__image"
+            />
+            <div class="card__info">
+              <h3>Process for the pay</h3>
+              <button class="card__like">❤</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="popup" id="editPopup">
+          <div class="popup__container">
+            <span class="popup__close" id="closePopup">&times;</span>
+            <h2>Editar Perfil</h2>
+            <input
+              type="text"
+              id="nameInput"
+              name="nombre"
+              class="popup__input"
+              placeholder="Nombre Apellido"
+              required
+            />
+            <input
+              type="text"
+              id="descriptionInput"
+              name="nombre"
+              class="popup__input"
+              placeholder="Acerca de mi"
+              required
+            />
+            <button id="saveProfile">Guardar</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 Robenson Louissaint</p>
+      </footer>
+    </div>
+
+    <script src="./JavaScript/script.js"></script>
+  </body>
+</html>
