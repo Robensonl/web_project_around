@@ -37,8 +37,6 @@ Este proyecto es una página web interactiva que muestra una colección de imág
 5. **The little music**: Imagen relacionada con la música.
 6. **Process for the pay**: Imagen de un proceso de pago.
 
-ng)
-
 ## Requisitos principales
 
 - El diseño de la página debe ser responsivo y no debe haber desplazamiento horizontal.

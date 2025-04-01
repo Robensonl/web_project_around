@@ -1,22 +1,9 @@
-body {
-  font-family: "Inter", Arial, sans-serif;
-  background-color: black;
-  color: white;
-  margin: 0;
-  padding: 0;
+.page{
+  background-color:#000;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+ }
 
-.page {
-  max-width: 1280px;
-  width: 100%;
-  text-align: center;
-}
 
-.block {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}

@@ -1,6 +1,25 @@
-.footer {
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  margin-top: 20px;
+.footer{
+  font-family: "Inter-regular";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  color:#545454;
+  margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 60px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px)
+{
+  .footer{
+    max-width:282px;
+    font-size:14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .footer{
+    max-width:282px;
+    margin:0 auto 47px 0;
+  }
 }

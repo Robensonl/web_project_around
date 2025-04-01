@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+      name="description"
+      content="Alrededor de los EEUU"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -19,132 +25,84 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="stylesheet" href="./vendor/fonts.css">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  <body>
-    <div class="page">
-      <header class="header">
-        <h1>Alrededor <span>de los EE. UU.</span></h1>
-      </header>
 
-      <main>
-        <section class="profile">
-          <img
-            src="./Images/image (23).png"
-            alt="Jacques Cousteau"
-            class="profile__image"
-          />
-          <div class="profile__info">
-            <h2 id="profileName">Jacques Cousteau</h2>
-            <p id="profileDescription">Explorador</p>
+</head>
+<body >
+  <div class="page">
+    <header class="header">
+      <img class="header__image" src="./images/Vector-header.png" alt="header-img"/>
+    </header>
+    <main class="content">
+      <section class="profile">
+          <img class="profile__photo" src="./images/profile.png" alt="profile-photo" />
+        <div class="profile__info">
+          <h1 class="profile__info-name">Jacques Cousteau</h1>
+          <button class="profile__info-edit-button" type="button"><img src="./images/pencil-edit.png" alt="edit-button"></button>
+          <p class="profile__info-details">Explorador</p>
+        </div>
+        <div>
+        <button class="profile__info-add-button" type="button"><img src="./images/Vector-plus.png" alt="add-button"> </button>
+        </div>
+      </section>
+      <section class="gallery">
+        <div class="gallery__card">
+         <img class="gallery__img" src="./images/Yosemite.jpg" alt="yosemite"/>
+         <div class="gallery__card-description">
+          <h2 class="gallery__card-text">Valle de Yosemite</h2>
+          <button class="gallery__card-button" type="button"></button>
+         </div>
+        </div>
+        <div class="gallery__card">
+         <img class="gallery__img" src="./images/louise.png" alt="louise" />
+         <div class="gallery__card-description">
+         <h2 class="gallery__card-text">Lago Louise </h2>
+         <button class="gallery__card-button" type="button"></button>
+         </div>
+        </div>
+        <div class="gallery__card">
+          <img class="gallery__img" src="./images/Montagne.png" alt="Montagne" />
+          <div class="gallery__card-description">
+          <h2 class="gallery__card-text">Montañas Calvas</h2>
+          <button class="gallery__card-button" type="button"></button>
           </div>
-          <button class="profile__edit" id="editProfile">✎</button>
-
-          <button class="profile__add">+</button>
-        </section>
-
-        <section class="cards">
-          <article class="card">
-            <img
-              src="/Images/Desarrollador.jpg"
-              alt="Desarrollador trabajando"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>Webdev</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <img
-              src="/Images/Bank-of-Montreal.jpg"
-              alt="Bank-of-Montreal"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>Bank of Montreal</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <img
-              src="/Images/bench-accounting-8D2k7a3wMKQ-unsplash.jpg"
-              alt="accounting"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>Talk with Customer</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <img
-              src="/Images/clay-banks-qW_k6x5OfRc-unsplash.jpg"
-              alt="Pay with a debit card"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>Pay with a debit card</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <img
-              src="/Images/jens-kreuter-6d3rldyNBmM-unsplash.jpg"
-              alt="Music litle"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>The litle music</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <img
-              src="/Images/sumup-mK6upImi-qQ-unsplash.jpg"
-              alt="Otro Lugar 2"
-              class="card__image"
-            />
-            <div class="card__info">
-              <h3>Process for the pay</h3>
-              <button class="card__like">❤</button>
-            </div>
-          </article>
-        </section>
-
-        <section class="popup" id="editPopup">
-          <div class="popup__container">
-            <span class="popup__close" id="closePopup">&times;</span>
-            <h2>Editar Perfil</h2>
-            <input
-              type="text"
-              id="nameInput"
-              name="nombre"
-              class="popup__input"
-              placeholder="Nombre Apellido"
-              required
-            />
-            <input
-              type="text"
-              id="descriptionInput"
-              name="nombre"
-              class="popup__input"
-              placeholder="Acerca de mi"
-              required
-            />
-            <button id="saveProfile">Guardar</button>
+        </div>
+        <div class="gallery__card">
+         <img class="gallery__img" src="./images/latemar.png" alt="latemar"/>
+          <div class="gallery__card-description">
+          <h2 class="gallery__card-text">Latemar</h2>
+          <button class="gallery__card-button" type="button"></button>
           </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2025 Robenson Louissaint</p>
-      </footer>
-    </div>
-
-    <script src="./JavaScript/script.js"></script>
-  </body>
+        </div>
+        <div class="gallery__card">
+          <img class="gallery__img" src="./images/national.png" alt="vanois"/>
+          <div class="gallery__card-description">
+          <h2 class="gallery__card-text">Parque Nacional de la Vanoise</h2>
+          <button class="gallery__card-button" type="button"></button>
+          </div>
+        </div>
+        <div class="gallery__card">
+        <img class="gallery__img" src="./images/brais.png" alt="brais"/>
+        <div class="gallery__card-description">
+        <h2 class="gallery__card-text">Lago di Braies</h2>
+        <button class="gallery__card-button" type="button"></button>
+       </div>
+      </div>
+      </section>
+       <div class="popup">
+        <button type="button" class="popup__button-close"></button>
+        <span class="popup__close" id="closePopup"><img src="./images/Close Icon.png" alt="buttonClose"></span>
+          <h3 class="popup__title">Editar perfil</h3>
+          <form class="popup__form" name="edit">
+            <input type="text" name="name" class="popup__form-input-name" placeholder="Nombre">
+            <input type="text" name="about" class="popup__form-input-about" placeholder="Acerca de mí">
+            <button type="submit" class="popup__button-save">Guardar</button>
+          </form>
+      </div>
+    </main>
+    <footer>
+      <p class="footer"> &copy;2025 Around The U.S.</p>
+    </footer>
+  </div>
+  <script src="./JavaScript/script.js"></script>
+</body>
 </html>

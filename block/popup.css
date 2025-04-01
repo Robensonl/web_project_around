@@ -1,0 +1,148 @@
+.popup{
+  position: relative;
+  background-color:#fff;
+  width: 430px;
+  height: 330px;
+  display:flex;
+  flex-direction: column;
+  border-radius: 10px;
+  display:none;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+ 
+ .openPopup{
+   display:flex;
+ }
+ 
+ .popup__title{
+   font-family: "Inter-black";
+   font-weight: 900;
+   font-size: 24px;
+   line-height: 1;
+   width: 330px;
+   height: 23px;
+   margin: 34px 64px 54px 36px;
+ 
+ }
+ 
+ .popup__form{
+ display:flex;
+ flex-direction: column;
+ width: 358px;
+ margin:0 35px;
+ }
+ 
+ .popup__form-input-name, .popup__form-input-about{
+   border:none;
+   border-bottom: 1px solid #c4c4c4;
+   height:27px;
+   margin-bottom:30px;
+   font-family: "Inter-regular";
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 1;
+ }
+  
+ .popup__button-save{
+   width:358px;
+   height: 50px;
+   background-color: #fff;
+   color:#C4C4C4;
+   font-family: "Inter-regular";
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 1;
+   padding: 0;
+   border: 1px solid #c4c4c4;
+   margin-top:18px;
+ }
+ 
+ .popup__button-save:hover{
+   opacity: 0.8;
+   cursor: pointer;
+ }
+ 
+ .popup__button-save:active{
+   background-color: black;
+   opacity: 1;
+ }
+ .popup__close{
+  right: -40px;
+  top: -40px;
+  position: absolute;
+  cursor: pointer;
+  font-size: 24px;
+  float: right;
+ }
+ .popup__close:hover{
+  color: red;
+ }
+ .popup__button-close{
+   width:40px;
+   height:40px;
+   position: absolute;
+   top: -40px;
+   left: 430px;
+   background-color: transparent;
+   background-image: url(/images/button-like.png);
+   background-repeat: no-repeat;
+   border: none;
+ }
+ 
+ .popup__button-close:hover {
+   opacity: 0.6;
+   cursor: pointer;
+ }
+ 
+ 
+ @media screen and (min-width: 768px) and (max-width: 1024px)
+  {
+   .popup__button-close {
+     position: absolute;
+     top: -40px;
+     left: 430px;
+   }
+ }
+ 
+ @media screen and (min-width: 320px) and (max-width: 767px)
+ {
+ .popup{
+ max-width: 282px;
+ max-height: 322px;
+ }
+ 
+ .popup__form{
+  max-width: 282px;
+  margin:0;
+ }
+ 
+ .popup__title{
+   max-width: 238px;
+   font-size:18px;
+   margin: 25px 22px 72px 22px;
+ }
+ .popup__form-input-name, .popup__form-input-about{
+   max-width: 238px;
+   margin-left:22px;
+   margin-right:22px;
+   margin-bottom:30px;
+ }
+ 
+ .popup__button-save{
+   max-width: 238px;
+   margin:16px 22px 25px 22px;
+ }
+ .popup__button-close {
+     width: 26px;
+     height: 26px;
+     background-size: contain;
+     position: absolute;
+     top: -40px;
+     left: 270px;
+ 
+   }
+ }

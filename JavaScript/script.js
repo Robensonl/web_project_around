@@ -1,37 +1,39 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const editButton = document.getElementById("editProfile");
-  const popup = document.getElementById("editPopup");
-  const closePopup = document.getElementById("closePopup");
-  const saveButton = document.getElementById("saveProfile");
-  const nameInput = document.getElementById("nameInput");
-  const descriptionInput = document.getElementById("descriptionInput");
-  const profileName = document.getElementById("profileName");
-  const profileDescription = document.getElementById("profileDescription");
+const popup = document.querySelector(".popup");
+const editButton =document.querySelector (".profile__info-edit-button");
+const closePopup = document.querySelector(".popup__close")
+const closeButton = document.querySelector(".popup__button-close");
+const formElement =document.querySelector(".popup__form");
+const nameInput = document.querySelector(".popup__form-input-name");
+const aboutInput = document.querySelector(".popup__form-input-about");
+const profileName = document.querySelector(".profile__info-name");
+const profileDescription = document.querySelector (".profile__info-details");
+const buttonSubmit = document.querySelector(".popup__button-save");
+const openPopup =document.querySelector (".profile__info-add-button");
 
-  editButton.addEventListener("click", () => {
-    popup.classList.add("popup_opened");
-  });
 
-  closePopup.addEventListener("click", () => {
-    popup.classList.remove("popup_opened");
-  });
+function handleOpenPopup() {
+  if (popup) {
+    popup.classList.add("openPopup");
+  }
+}
 
-  saveButton.addEventListener("click", () => {
-    profileName.textContent = nameInput.value;
-    profileDescription.textContent = descriptionInput.value;
-    popup.classList.remove("popup_opened");
-  });
+function handleClosePopup() {
+  if (popup) {
+    popup.classList.remove("openPopup");
+  }
+}
 
-  window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-      popup.classList.remove("popup_opened");
+if (editButton) editButton.addEventListener("click", handleOpenPopup);
+if (closePopup) closePopup.addEventListener("click", handleClosePopup)
+if (closeButton) closeButton.addEventListener("click", handleClosePopup);
+
+if (formElement) {
+  formElement.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    if (nameInput && aboutInput && profileName && profileDescription) {
+      profileName.textContent = nameInput.value;
+      profileDescription.textContent = aboutInput.value;
     }
+    handleClosePopup();
   });
-
-  const likeButtons = document.querySelectorAll(".card__like");
-  likeButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.classList.toggle("liked");
-    });
-  });
-});
+}
