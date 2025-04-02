@@ -57,8 +57,8 @@
   opacity: 0.8;
 }
 .popup__close{
-  right: -26px;
-  top: -26px;
+  right: -28px;
+  top: -35px;
   position: absolute;
   cursor: pointer;
   font-size: 24px;
