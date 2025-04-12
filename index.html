@@ -1,95 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Página web interactiva con imágenes y descripciones de tecnología, finanzas y música." />
+    <meta name="description" content="Página web interactiva con imágenes y descripciones de lugares en EE.UU." />
     <meta name="keywords" content="Yosemite, Montañas, Parque Nacional, Latemar" />
     <meta name="author" content="Robenson Louissaint" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Alrededor de los EE. UU.</title>
-    
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="stylesheet" href="./vendor/fonts.css">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
-<body >
+<body>
   <div class="page">
     <header class="header">
-      <img class="header__image" src="./images/Vector-header.png" alt="header-img"/>
+      <img class="header__image" src="./images/Vector-header.png" alt="logo Around The U.S."/>
     </header>
     <main class="content">
       <section class="profile">
-          <img class="profile__photo" src="./images/profile.png" alt="profile-photo" />
+        <div class="profile__photo-container">
+          <img class="profile__photo" src="./images/profile.png" alt="Foto de perfil" />
+        </div>
         <div class="profile__info">
-          <h1 class="profile__info-name">Jacques Cousteau</h1>
-          <button class="profile__info-edit-button" type="button"><img src="./images/pencil-edit.png" alt="edit-button"></button>
+          <div class="profile__info-header">
+            <h1 class="profile__info-name">Jacques Cousteau</h1>
+            <button class="profile__info-edit-button" type="button" aria-label="Editar perfil">
+              <img src="./images/pencil-edit.png" alt="icono editar">
+            </button>
+          </div>
           <p class="profile__info-details">Explorador</p>
         </div>
-        <div>
-        <button class="profile__info-add-button" type="button"><img src="./images/Vector-plus.png" alt="add-button"> </button>
-        </div>
+        <button class="profile__info-add-button" type="button" aria-label="Añadir tarjeta">
+          <img src="./images/Vector-plus.png" alt="icono añadir">
+        </button>
       </section>
-      <section class="gallery">
-        <div class="gallery__card">
-         <img class="gallery__img" src="./images/Yosemite.jpg" alt="yosemite"/>
-         <div class="gallery__card-description">
-          <h2 class="gallery__card-text">Valle de Yosemite</h2>
-          <button class="gallery__card-button" type="button"></button>
-         </div>
-        </div>
-        <div class="gallery__card">
-         <img class="gallery__img" src="./images/louise.png" alt="louise" />
-         <div class="gallery__card-description">
-         <h2 class="gallery__card-text">Lago Louise </h2>
-         <button class="gallery__card-button" type="button"></button>
-         </div>
-        </div>
-        <div class="gallery__card">
-          <img class="gallery__img" src="./images/Montagne.png" alt="Montagne" />
-          <div class="gallery__card-description">
-          <h2 class="gallery__card-text">Montañas Calvas</h2>
-          <button class="gallery__card-button" type="button"></button>
-          </div>
-        </div>
-        <div class="gallery__card">
-         <img class="gallery__img" src="./images/latemar.png" alt="latemar"/>
-          <div class="gallery__card-description">
-          <h2 class="gallery__card-text">Latemar</h2>
-          <button class="gallery__card-button" type="button"></button>
-          </div>
-        </div>
-        <div class="gallery__card">
-          <img class="gallery__img" src="./images/national.png" alt="vanois"/>
-          <div class="gallery__card-description">
-          <h2 class="gallery__card-text">Parque Nacional de la Vanoise</h2>
-          <button class="gallery__card-button" type="button"></button>
-          </div>
-        </div>
-        <div class="gallery__card">
-        <img class="gallery__img" src="./images/brais.png" alt="brais"/>
-        <div class="gallery__card-description">
-        <h2 class="gallery__card-text">Lago di Braies</h2>
-        <button class="gallery__card-button" type="button"></button>
-       </div>
-      </div>
-      </section>
-       <div class="popup">
-        <div class="popup__container">
-        <button type="button" class="popup__button-close"></button>
-        <span class="popup__close" id="closePopup"><img src="./images/Close Icon.png" alt="Close"></span>
-          <h3 class="popup__title">Editar perfil</h3>
-          <form class="popup__form" name="edit">
-            <input type="text" name="name" class="popup__form-input-name" placeholder="Nombre">
-            <input type="text" name="about" class="popup__form-input-about" placeholder="Acerca de mí">
-            <button type="submit" class="popup__button-save">Guardar</button>
-          </form>
 
+      <section class="gallery" id="gallery">
+        <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+      </section>
+    </main>
+
+    <!-- Popup para editar perfil -->
+    <div class="popup popup_type_edit">
+      <div class="popup__container">
+        <span class="popup__close" id="closePopup"><img src="./images/Close Icon.png" alt="Close"></span>
+        <button type="button" class="popup__button-close" aria-label="Cerrar"></button>
+        <h3 class="popup__title">Editar perfil</h3>
+        <form class="popup__form" name="edit">
+          <input type="text" name="name" class="popup__form-input-name" placeholder="Nombre" required minlength="2" maxlength="40">
+          <input type="text" name="about" class="popup__form-input-about" placeholder="Acerca de mí" required minlength="2" maxlength="200">
+          <button type="submit" class="popup__button-save">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup para añadir nueva tarjeta -->
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <span class="popup__close" id="closePopup"><img src="./images/Close Icon.png" alt="Close"></span>
+        <button type="button" class="popup__button-close" aria-label="Cerrar"></button>
+        <h3 class="popup__title">Nuevo lugar</h3>
+        <form class="popup__form" name="add">
+          <input type="text" name="title" class="popup__form-input-name" placeholder="Título" required minlength="2" maxlength="30">
+          <input type="url" name="link" class="popup__form-input-about" placeholder="Enlace a la imagen" required>
+          <button type="submit" class="popup__button-save">Crear</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup para ver imagen -->
+    <div class="popup popup_type_image">
+      <div class="popup__container popup__container_type_image">
+        <span class="popup__close" id="closePopup"><img src="./images/Close Icon.png" alt="Close"></span>
+        <button type="button" class="popup__button-close" aria-label="Cerrar"></button>
+        <img src="#" alt="Imagen ampliada" class="popup__image">
+        <p class="popup__caption"></p>
+      </div>
+    </div>
+
+    <!-- Template para las tarjetas -->
+    <template id="card-template">
+      <div class="gallery__card">
+        <img class="gallery__img" src="#" alt="Imagen de lugar" />
+        <button class="gallery__delete-button" type="button" aria-label="Eliminar tarjeta">
+          <img src="./images/vector-tapa.png" alt="icono tapa eliminar">
+          <img src="./images/delete-image.png" alt="icono eliminar">
+        </button>
+        <div class="gallery__card-description">
+          <h2 class="gallery__card-text"></h2>
+          <div class="gallery__like-container">
+            <button class="gallery__card-button" type="button" aria-label="Me gusta"></button>
+          </div>
         </div>
       </div>
-    </main>
-    <footer>
-      <p class="footer"> &copy;2025 Around The U.S.</p>
+    </template>
+
+    <footer class="footer">
+      <p class="footer__text"> &copy; 2025 Around The U.S.</p>
     </footer>
   </div>
   <script src="./scripts/index.js"></script>
