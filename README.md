@@ -1,54 +1,81 @@
-# Alrededor de los EE. UU.
+# 🌎 Alrededor de los EE.UU. | Proyecto Web Interactivo
 
-Este proyecto es una página web interactiva que muestra una colección de imágenes y descripciones relacionadas con temas financieros, tecnología y música. La página incluye un perfil de usuario, tarjetas con imágenes y descripciones, y un cuadro emergente para editar el perfil.
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
-## Características principales
+**Sitio web interactivo** que permite explorar y gestionar tarjetas de lugares emblemáticos de EE.UU. con funcionalidades CRUD completas.
 
-- **Diseño responsivo**: La página se adapta a diferentes tamaños de pantalla, desde dispositivos móviles (320px) hasta pantallas grandes (1280px).
-- **Tarjetas interactivas**: Se muestran seis tarjetas con imágenes y títulos relacionados con tecnología, finanzas y música.
-- **Edición de perfil**: Un cuadro emergente permite al usuario editar su nombre y descripción.
-- **Botones interactivos**: Los botones "Me gusta" y "Editar perfil" tienen estados activos y efectos hover.
+## 🚀 Demo en Vivo
+▶️ [Ver Proyecto en GitHub Pages](https://robensonl.github.io/web_project_around/)
 
-## Tecnologías utilizadas
+## ✨ Características Principales
 
-- **HTML**: Estructura de la página.
-- **CSS**: Estilos y diseño responsivo.
-- **JavaScript**: Funcionalidad interactiva, como abrir/cerrar el cuadro emergente y actualizar el perfil.
+### 🖼️ Interfaz Dinámica
+- **6 tarjetas iniciales** renderizadas desde JavaScript
+- **Sistema de likes** con cambio de color interactivo
+- **Eliminación de tarjetas** con animación fluida
 
-## Estructura del proyecto
+### 🛠️ Funcionalidades Avanzadas
+```html
+<!-- Ejemplo de tarjeta generada dinámicamente -->
+<template id="card-template">
+      <div class="gallery__card">
+        <img class="gallery__img" src="#" alt="Imagen de lugar" />
+        <button class="gallery__delete-button" type="button" aria-label="Eliminar tarjeta">
+          <img src="./images/Trash-delete.svg" alt="icono eliminar">
+        </button>
+        <div class="gallery__card-description">
+          <h2 class="gallery__card-text"></h2>
+          <div class="gallery__like-container">
+            <button class="gallery__card-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </div>
+      </div>
+    </template>
 
-- **index.html**: Archivo principal que contiene la estructura HTML de la página.
-- **styles.css**: Archivo CSS con los estilos para la página.
-- **script.js**: Archivo JavaScript con la lógica para la interactividad.
+🧩 Componentes Clave
+Componente	Tecnología	Descripción
+Ventanas Modales	HTML/CSS + JS	3 tipos: edición, añadir tarjetas, zoom
+Formularios	Validación HTML5	Campos con restricciones de longitud
+Diseño Responsive	Media Queries	Adaptable a móviles (320px+) y desktop
+🛠️ Tecnologías Utilizadas
+Metodología BEM para estructura CSS
 
-## Instrucciones de uso
+Normalize.css para reset de estilos
 
-1. Clona este repositorio en tu máquina local.
+JavaScript ES6+ para interacciones dinámicas
+
+GitHub Pages para despliegue
+
+✅ Cumplimiento de Estándares
+Categoría	Cumplimiento	Detalle
+Accesibilidad	✅	Atributos alt, aria-label
+Performance	✅	Optimización de imágenes (75vh/75vw)
+Código Limpio	✅	Funciones con single responsibility
+BEM	✅	Bloque__elemento--modificador
+
+Vista de Tarjetas	Ventana Modal 
 https://robensonl.github.io/web_project_around/
-2. Abre el archivo `index.html` en tu navegador.
-3. Explora las tarjetas y haz clic en el botón "Me gusta" para marcar tus favoritos.
-4. Haz clic en el botón "✎" para editar tu perfil. Completa los campos y guarda los cambios.
+Tarjetas	Modal
+🔄 Mejoras Futuras
+Implementar autenticación de usuarios
 
-## Tarjetas de imágenes
+Añadir persistencia de datos con LocalStorage
 
-1. **Desarrollador**: Imagen de un desarrollador trabajando.
-2. **Bank of Montreal**: Imagen relacionada con el Bank of Montreal.
-3. **Talk with Customer**: Imagen de una conversación con un cliente.
-4. **Pay with a debit card**: Imagen de un pago con tarjeta de débito.
-5. **The little music**: Imagen relacionada con la música.
-6. **Process for the pay**: Imagen de un proceso de pago.
+Mejorar feedback visual en formularios
 
-## Requisitos principales
+⌨️ ¿Cómo contribuir?
 
-- El diseño de la página debe ser responsivo y no debe haber desplazamiento horizontal.
-- El cuadro emergente "Editar perfil" debe estar centrado y tener un fondo semitransparente.
-- Las tarjetas deben mostrar imágenes y títulos, con un botón "Me gusta" que cambie de color al activarse.
-- El botón "Guardar" en el cuadro emergente debe actualizar el perfil y cerrar el cuadro.
+Haz fork del repositorio
 
-## Autor
+Crea una rama: git checkout -b feature/nueva-funcionalidad
 
-- **Nombre**: Robenson Louissaint
+Haz commit: git commit -m 'Add some feature'
 
----
+Push: git push origin feature/nueva-funcionalidad
 
-¡Gracias por revisar mi proyecto! 😊
+Abre un Pull Request
+
+🌟 ¡Tu contribución es bienvenida!
+benbenlouissaint@gmail.com | @Robensonl

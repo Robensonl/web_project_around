@@ -1,24 +1,26 @@
 /* Estilos para las tarjetas */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 20px;
-  padding: 51px 0 0;
-  margin: 0;
-  list-style: none;
+  width: 880px;
+  max-width: 0px auto 67px auto;
 }
 
 .gallery__card {
+  background-color:#fff;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .gallery__img {
-  width: 100%;
+  width: 282px;
   height: 282px;
-  object-fit: cover;
-  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-top-left-radius:10px ;
+  
 }
 
 .gallery__delete-button {
@@ -64,7 +66,7 @@
 .gallery__card-button {
   width: 21px;
   height: 19px;
-  background: url('../images/vector-like.png') center no-repeat;
+  background: url('../images/Like-empty.svg') center no-repeat;
   background-size: contain;
   border: none;
   cursor: pointer;
@@ -77,7 +79,7 @@
 }
 
 .gallery__card-button_active {
-  background-image: url('../images/vector-like.png');
+  background-image: url('../images/Union-like.png');
 }
 
 .gallery__like-count {
@@ -86,37 +88,26 @@
 }
 
 /* Media queries existentes */
-@media screen and (max-width: 767px) {
-  .popup__container {
-    max-width: 250px;
-    max-height: 315px;
-    width: 40px;
-    height: 282px;
-  }
-  
-  .popup__title {
-    font-size: 18px;
-    margin-bottom: 45px;
-  }
-  
-  .popup__form {
-    width: 238px;
-  }
-  
-  .popup__button-save {
-    height: 46px;
-    font-size: 14px;
-  }
-  
-  .gallery {
-    padding-top: 36px;
-    gap: 20px;
-  }
-  .gallery__img {
-    
-    max-width: 282px;
-    max-height: 322px;
-    object-fit: cover;
-    cursor: pointer;
-  }
+@media screen and (min-width: 768px) and (max-width: 1280px)
+{
+ .gallery{
+   width: 750px;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+   margin: 30px 0 47px 0;
+   justify-items: center;
+ }
+}
+
+.gallery__card{
+ width:282px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px)
+{
+ .gallery{
+   max-width: 282px;
+   display: flex;
+   flex-direction: column;
+ }
 }

@@ -88,13 +88,17 @@ function createCard(cardData) {
   cardTitle.textContent = cardData.name;
   
   // Like button functionality
+  console.log(likeButton);
   likeButton.addEventListener('click', () => {
+    console.log("consulta like");
     likeButton.classList.toggle('gallery__card-button_active');
+
   });
   
   // Delete button functionality
   deleteButton.addEventListener('click', () => {
     cardElement.remove();
+
   });
   
   // Open image popup
@@ -110,6 +114,7 @@ function createCard(cardData) {
 
 function renderInitialCards() {
   initialCards.forEach(cardData => {
+    console.log("entrar")
     const cardElement = createCard(cardData);
     gallery.prepend(cardElement);
   });
