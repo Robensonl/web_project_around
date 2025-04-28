@@ -1,29 +1,13 @@
-// Constantes
+import { enableValidation } from './validate.js';
+
+// Array de tarjetas iniciales
 const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }
+  { name: "Valle de Yosemite", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" },
+  { name: "Lago Louise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg" },
+  { name: "Montañas Calvas", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg" },
+  { name: "Latemar", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg" },
+  { name: "Parque Nacional de la Vanoise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg" },
+  { name: "Lago di Braies", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg" }
 ];
 
 // Selectores
@@ -33,11 +17,10 @@ const imagePopup = document.querySelector('.popup_type_image');
 const editButton = document.querySelector('.profile__info-edit-button');
 const addButton = document.querySelector('.profile__info-add-button');
 const closeButtons = document.querySelectorAll('.popup__button-close');
-const closeSpans = document.querySelectorAll('.popup__close');
 const editForm = document.forms['edit'];
 const addForm = document.forms['add'];
-const nameInput = editForm.querySelector('.popup__form-input-name');
-const aboutInput = editForm.querySelector('.popup__form-input-about');
+const nameInput = editForm.querySelector('[name="name"]');
+const aboutInput = editForm.querySelector('[name="about"]');
 const profileName = document.querySelector('.profile__info-name');
 const profileDescription = document.querySelector('.profile__info-details');
 const gallery = document.querySelector('.gallery');
@@ -45,37 +28,36 @@ const cardTemplate = document.getElementById('card-template').content;
 const imagePopupImage = imagePopup.querySelector('.popup__image');
 const imagePopupCaption = imagePopup.querySelector('.popup__caption');
 
-// Funciones para abrir/cerrar popups
+// Funciones de popups
 function openPopup(popup) {
-  popup.classList.add('openPopup');
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup(popup) {
-  popup.classList.remove('openPopup');
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
 }
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.openPopup');
-    closePopup(openedPopup);
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) closePopup(openedPopup);
   }
 }
 
-// Manejo de clicks fuera del popup
 function setupPopupCloseListeners() {
   const popups = document.querySelectorAll('.popup');
   popups.forEach(popup => {
     popup.addEventListener('mousedown', (evt) => {
-      if (evt.target === popup) {
+      if (evt.target.classList.contains('popup')) {
         closePopup(popup);
       }
     });
   });
 }
 
-// Funciones para tarjetas
+// Funciones de tarjetas
 function createCard(cardData) {
   const cardElement = cardTemplate.querySelector('.gallery__card').cloneNode(true);
   const cardImage = cardElement.querySelector('.gallery__img');
@@ -86,41 +68,33 @@ function createCard(cardData) {
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
-  
-  // Like button functionality
-  console.log(likeButton);
-  likeButton.addEventListener('click', () => {
-    console.log("consulta like");
-    likeButton.classList.toggle('gallery__card-button_active');
 
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.toggle('gallery__card-button_active');
   });
-  
-  // Delete button functionality
+
   deleteButton.addEventListener('click', () => {
     cardElement.remove();
-
   });
-  
-  // Open image popup
+
   cardImage.addEventListener('click', () => {
     imagePopupImage.src = cardData.link;
     imagePopupImage.alt = cardData.name;
     imagePopupCaption.textContent = cardData.name;
     openPopup(imagePopup);
   });
-  
+
   return cardElement;
 }
 
 function renderInitialCards() {
   initialCards.forEach(cardData => {
-    console.log("entrar")
     const cardElement = createCard(cardData);
     gallery.prepend(cardElement);
   });
 }
 
-// Funciones para formularios
+// Funciones de formularios
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -132,53 +106,39 @@ function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const titleInput = addForm.querySelector('[name="title"]');
   const linkInput = addForm.querySelector('[name="link"]');
-  
-  const newCard = {
-    name: titleInput.value,
-    link: linkInput.value
-  };
-  
-  const cardElement = createCard(newCard);
-  gallery.prepend(cardElement);
-  
+  const newCard = { name: titleInput.value, link: linkInput.value };
+  gallery.prepend(createCard(newCard));
   addForm.reset();
   closePopup(addPopup);
 }
 
 // Event listeners
-if (editButton) {
-  editButton.addEventListener('click', () => {
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileDescription.textContent;
-    openPopup(editPopup);
-  });
-}
+editButton.addEventListener('click', () => {
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileDescription.textContent;
+  openPopup(editPopup);
+});
 
-if (addButton) {
-  addButton.addEventListener('click', () => {
-    openPopup(addPopup);
-  });
-}
+addButton.addEventListener('click', () => {
+  openPopup(addPopup);
+});
 
-if (editForm) {
-  editForm.addEventListener('submit', handleEditFormSubmit);
-}
+editForm.addEventListener('submit', handleEditFormSubmit);
+addForm.addEventListener('submit', handleAddFormSubmit);
 
-if (addForm) {
-  addForm.addEventListener('submit', handleAddFormSubmit);
-}
-
-// Cerrar popups con botones y spans
 closeButtons.forEach(button => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
 
-closeSpans.forEach(span => {
-  const popup = span.closest('.popup');
-  span.addEventListener('click', () => closePopup(popup));
-});
-
-// Inicialización
+// Inicializar
 setupPopupCloseListeners();
 renderInitialCards();
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+});

@@ -11,10 +11,17 @@
 
 ## ✨ Características Principales
 
-### 🖼️ Interfaz Dinámica
-- **6 tarjetas iniciales** renderizadas desde JavaScript
-- **Sistema de likes** con cambio de color interactivo
-- **Eliminación de tarjetas** con animación fluida
+Tarjetas	Modal
+🔄 Mejoras Futuras
+- HTML5
+- CSS3
+- Flexbox y Grid Layout
+- Responsive Web Design (RWD)
+- JavaScript Puro (vanilla JS)
+- Validación de formularios
+- JavaScript modular (import/export)
+- Git y GitHub
+- GitHub Pages
 
 ### 🛠️ Funcionalidades Avanzadas
 ```html
@@ -57,24 +64,24 @@ BEM	✅	Bloque__elemento--modificador
 
 Vista de Tarjetas	Ventana Modal 
 https://robensonl.github.io/web_project_around/
-Tarjetas	Modal
-🔄 Mejoras Futuras
-Implementar autenticación de usuarios
 
-Añadir persistencia de datos con LocalStorage
 
-Mejorar feedback visual en formularios
+## 🎯 Funciones implementadas
 
-⌨️ ¿Cómo contribuir?
-
-Haz fork del repositorio
-
-Crea una rama: git checkout -b feature/nueva-funcionalidad
-
-Haz commit: git commit -m 'Add some feature'
-
-Push: git push origin feature/nueva-funcionalidad
-
+- Editar el perfil del usuario (nombre y descripción).
+- Agregar una nueva tarjeta (título y enlace a imagen).
+- Validación de formularios:
+  - Nombre: entre 2 y 40 caracteres.
+  - Acerca de mí: entre 2 y 200 caracteres.
+  - Título de tarjeta: entre 2 y 30 caracteres.
+  - Imagen: enlace (URL) válido.
+- Cerrar popups:
+  - Haciendo clic fuera del popup.
+  - Pulsando la tecla **Esc**.
+  - Haciendo clic en el botón de cerrar.
+- Dar "Me gusta" a las tarjetas.
+- Eliminar tarjetas creadas.
+- Ver imagen ampliada en popup.
 Abre un Pull Request
 
 🌟 ¡Tu contribución es bienvenida!
