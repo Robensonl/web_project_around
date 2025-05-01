@@ -1,52 +1,37 @@
-export function enableValidation(config) {
-    const forms = Array.from(document.querySelectorAll(config.formSelector));
-    forms.forEach(form => {
-      form.addEventListener('submit', evt => {
-        evt.preventDefault();
+// Función para reiniciar la validación al abrir los popups
+const resetValidation = () => {
+  // Seleccionar todos los formularios
+  const popupForms = document.querySelectorAll(".popup__form");
+
+  popupForms.forEach((popupForm) => {
+    // Seleccionar todos los inputs de cada formulario
+    const inputs = popupForm.querySelectorAll(".popup__input");
+
+    inputs.forEach((input) => {
+      // Escuchar evento de entrada de datos
+      input.addEventListener("input", () => {
+        const minLength = input.minLength;
+        const popupError = popupForm.querySelector(`#${input.id}-error`);
+
+        // Validación: ¿el valor es demasiado corto?
+        if (input.value.length < minLength) {
+          popupError.classList.add("popup__error_visible");
+          popupError.textContent = "ERROR. DEBES CAPTURAR MÁS CARACTERES";
+          input.classList.add("popup__input_type_error");
+        } else {
+          popupError.classList.remove("popup__error_visible");
+          popupError.textContent = "";
+          input.classList.remove("popup__input_type_error");
+        }
       });
-      setEventListeners(form, config);
     });
-  }
-  
-  function setEventListeners(form, config) {
-    const inputs = Array.from(form.querySelectorAll('input'));
-    const button = form.querySelector(config.submitButtonSelector);
-  
-    toggleButtonState(inputs, button, config);
-  
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        checkInputValidity(form, input, config);
-        toggleButtonState(inputs, button, config);
-      });
-    });
-  }
-  
-  function checkInputValidity(form, input, config) {
-    const errorElement = form.querySelector(`#${input.name}-error`);
-    if (!input.validity.valid) {
-      input.classList.add(config.inputErrorClass);
-      if (errorElement) {
-        errorElement.textContent = input.validationMessage;
-        errorElement.classList.add(config.errorClass);
-      }
-    } else {
-      input.classList.remove(config.inputErrorClass);
-      if (errorElement) {
-        errorElement.textContent = '';
-        errorElement.classList.remove(config.errorClass);
-      }
-    }
-  }
-  
-  function toggleButtonState(inputs, button, config) {
-    const isValid = inputs.every(input => input.validity.valid);
-    if (!isValid) {
-      button.classList.add(config.inactiveButtonClass);
-      button.disabled = true;
-    } else {
-      button.classList.remove(config.inactiveButtonClass);
-      button.disabled = false;
-    }
-  }
-  
+  });
+};
+
+// Función de configuración (no se usa aún)
+const validationConfig = () => {
+  console.log("Este no lo usaremos aún");
+};
+
+// Exportar funciones
+export { resetValidation, validationConfig };

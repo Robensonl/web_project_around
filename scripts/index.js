@@ -1,6 +1,6 @@
-import { enableValidation } from './validate.js';
+import { resetValidation } from './validate.js';
 
-// Array de tarjetas iniciales
+// Lista de tarjetas iniciales
 const initialCards = [
   { name: "Valle de Yosemite", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" },
   { name: "Lago Louise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg" },
@@ -64,7 +64,7 @@ function createCard(cardData) {
   const cardTitle = cardElement.querySelector('.gallery__card-text');
   const likeButton = cardElement.querySelector('.gallery__card-button');
   const deleteButton = cardElement.querySelector('.gallery__delete-button');
-  
+
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
@@ -117,10 +117,12 @@ editButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileDescription.textContent;
   openPopup(editPopup);
+  resetValidation(); // Activar validación personalizada
 });
 
 addButton.addEventListener('click', () => {
   openPopup(addPopup);
+  resetValidation(); // Activar validación personalizada
 });
 
 editForm.addEventListener('submit', handleEditFormSubmit);
@@ -134,11 +136,3 @@ closeButtons.forEach(button => {
 // Inicializar
 setupPopupCloseListeners();
 renderInitialCards();
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});
