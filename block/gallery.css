@@ -21,17 +21,21 @@
 }
 
 .gallery__delete-button {
-  position: absolute;
+  position: absolute; 
   top: 18px;
   right: 15px;
   width: 18px;
   height: 19px;
+  background-color: rgba(255, 255, 255, 0.847);
   background: transparent;
   border: none;
   cursor: pointer;
   transition: opacity 0.3s;
 }
-
+.gallery__delete-button img {
+  width: 16px;
+  height: 16px;
+}
 .gallery__delete-button:hover {
   opacity: 0.6;
 }
@@ -60,21 +64,26 @@
 }
 
 .gallery__card-button {
-  width: 21px;
-  height: 19px;
-  background: url('../images/Like-empty.svg') center no-repeat;
-  background-size: contain;
   border: none;
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart.svg) center no-repeat;
+  background-size: 100%;
   cursor: pointer;
-  transition: opacity 0.3s;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  right: 10px;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 
+
 .gallery__card-button:hover {
-  opacity: 0.5;
+  transform: scale(1.3);
 }
 
 .gallery__card-button_active {
-  background-image: url('../images/Union-like.png');
+  opacity: 1;
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart-filled.svg) center no-repeat;
 }
 
 .gallery__like-count {
@@ -86,6 +95,7 @@
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .gallery {
     width: 750px;
+    gap: 20px;
     grid-template-columns: repeat(2, 1fr);
     margin: 30px 0 47px 0;
     justify-items: center;
