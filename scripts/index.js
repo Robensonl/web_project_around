@@ -88,8 +88,8 @@ function handleAddFormSubmit(evt) {
 
 // Event listeners
 editButton.addEventListener('click', () => {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileDescription.textContent;
+  //nameInput.value = profileName.textContent;
+  //aboutInput.value = profileDescription.textContent;
   editFormValidator.resetValidation();
   openPopup(editPopup);
 });
