@@ -13,15 +13,30 @@
 
 Tarjetas	Modal
 🔄 Mejoras Futuras
-- HTML5
-- CSS3
-- Flexbox y Grid Layout
-- Responsive Web Design (RWD)
-- JavaScript Puro (vanilla JS)
-- Validación de formularios
-- JavaScript modular (import/export)
-- Git y GitHub
-- GitHub Pages
+- HTML5 semántico
+- CSS3 con metodología BEM
+- JavaScript ES6+ (módulos)
+- Programación Orientada a Objetos (OOP)
+- Webpack (versión modular)
+- Git y GitHub Pages
+## 📁 Estructura del proyecto
+web_project_around/
+│
+├── blocks/ # Componentes y BEM CSS
+├── images/ # Imágenes del proyecto
+├── pages/ # CSS principal (index.css)
+├── scripts/ # Lógica JS modular
+│ ├── index.js
+│ ├── Card.js
+│ ├── Section.js
+│ ├── UserInfo.js
+│ ├── Popup.js
+│ ├── PopupWithImage.js
+│ ├── PopupWithForm.js
+│ └── validate.js
+├── vendor/ # Fuentes
+├── index.html # Página principal
+└── README.md # Este archivo
 
 ### 🛠️ Funcionalidades Avanzadas
 ```html
@@ -66,22 +81,27 @@ Vista de Tarjetas	Ventana Modal
 https://robensonl.github.io/web_project_around/
 
 
-## 🎯 Funciones implementadas
 
-- Editar el perfil del usuario (nombre y descripción).
-- Agregar una nueva tarjeta (título y enlace a imagen).
-- Validación de formularios:
-  - Nombre: entre 2 y 40 caracteres.
-  - Acerca de mí: entre 2 y 200 caracteres.
-  - Título de tarjeta: entre 2 y 30 caracteres.
-  - Imagen: enlace (URL) válido.
-- Cerrar popups:
-  - Haciendo clic fuera del popup.
-  - Pulsando la tecla **Esc**.
-  - Haciendo clic en el botón de cerrar.
-- Dar "Me gusta" a las tarjetas.
-- Eliminar tarjetas creadas.
-- Ver imagen ampliada en popup.
+## 🧩 Clases implementadas
+
+| Clase              | Descripción                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| `Card`             | Crea tarjetas con imagen y título. Abre popup de imagen al hacer clic.      |
+| `Section`          | Renderiza una lista de tarjetas dinámicamente usando una función callback.  |
+| `UserInfo`         | Obtiene y actualiza información del perfil del usuario.                     |
+| `Popup`            | Maneja apertura y cierre de cualquier popup.                                |
+| `PopupWithImage`   | Extiende `Popup` para mostrar imágenes en ventana emergente.                |
+| `PopupWithForm`    | Extiende `Popup`, gestiona formularios, inputs y envío de datos.            |
+| `FormValidator`    | Añade validación personalizada en tiempo real a los formularios.            |
+
+## 📌 Cómo ejecutar localmente
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/robensonl/web_project_around.git
+cd web_project_around
+
 Abre un Pull Request
 
 🌟 ¡Tu contribución es bienvenida!
