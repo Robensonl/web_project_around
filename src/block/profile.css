@@ -50,6 +50,7 @@
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .profile__info-edit-button:hover {

@@ -1,0 +1,24 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "Proyecto web interactivo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Robenson/web_project_around.git"
+  },
+  "keywords": [
+    "proyecto",
+    "web",
+    "JavaScript",
+    "web_project_around"
+  ],
+  "author": "Robenson Louissaint",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
