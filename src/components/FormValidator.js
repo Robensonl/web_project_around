@@ -4,6 +4,7 @@ export class FormValidator {
       this._config = config;
       this._formElement = formElement;
       
+      
       // Obtiene todos los inputs del formulario
       this._inputList = Array.from(
         this._formElement.querySelectorAll(this._config.inputSelector)
