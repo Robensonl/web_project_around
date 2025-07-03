@@ -21,22 +21,7 @@ Tarjetas	Modal
 - Git y GitHub Pages
 ## 📁 Estructura del proyecto
 web_project_around/
-│
-├── blocks/ # Componentes y BEM CSS
-├── images/ # Imágenes del proyecto
-├── pages/ # CSS principal (index.css)
-├── scripts/ # Lógica JS modular
-│ ├── index.js
-│ ├── Card.js
-│ ├── Section.js
-│ ├── UserInfo.js
-│ ├── Popup.js
-│ ├── PopupWithImage.js
-│ ├── PopupWithForm.js
-│ └── validate.js
-├── vendor/ # Fuentes
-├── index.html # Página principal
-└── README.md # Este archivo
+
 
 ### 🛠️ Funcionalidades Avanzadas
 ```html

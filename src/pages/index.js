@@ -1,16 +1,12 @@
-import {initialCards} from '../components/constants.js'
 import { Api } from '../components/Api.js';
 import { Card } from '../components/Card.js';
 import { UserInfo } from '../components/UserInfo.js';
-
-// Componentes de UI
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
-import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';// Configuración de la API
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 
-// Configuración de validación (debe coincidir con tu FormValidator)
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -20,8 +16,6 @@ const validationConfig = {
   errorClass: 'popup__error_visible'
 };
 
-
-// Validador para formulario de edición de perfil
 const editFormValidator = new FormValidator(
   validationConfig, 
   document.forms.edit
@@ -50,7 +44,7 @@ const apiConfig = {
   }
 };
 
-// Inicialización de la API
+
 const api = new Api(apiConfig);
 
 // Inicialización de componentes
@@ -65,6 +59,7 @@ const popupWithImage = new PopupWithImage('.popup_type_image');
 const popupEditProfile = new PopupWithForm('.popup_type_edit', handleProfileSubmit);
 const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCardSubmit);
 const popupEditAvatar = new PopupWithForm('.popup_type_avatar', handleAvatarSubmit);
+
 const popupConfirmDelete = new PopupWithConfirmation('.popup_type_confirm', handleDeleteCard);
 
 // Handlers
@@ -79,52 +74,13 @@ function handleProfileSubmit(formData) {
     .finally(() => popupEditProfile.renderLoading(false));
 }
 
- function renderCards(cardsData, userId) {
-  try {
-    const cardsContainer = document.querySelector('.gallery__cards');
-    
-    if (!cardsContainer) {
-      throw new Error('Contenedor de tarjetas no encontrado');
-    }
-    
-    if (!Array.isArray(cardsData)) {
-      throw new Error('cardsData debe ser un array');
-    }
 
-    cardsContainer.innerHTML = '';
-    
-    cardsData.forEach(cardData => {
-      if (!cardData || !cardData.name || !cardData.link) {
-        console.warn('Datos de tarjeta inválidos:', cardData);
-        return;
-      }
-      
-      const card = new Card(
-        {
-          data: cardData,
-          handleCardClick: (data) => openImagePreview(data),
-          handleLikeClick: handleLikeCard,
-          handleDeleteClick: handleDeleteCard,
-          userId: userId
-        },
-        '#card-template'
-      );
-      
-      const cardElement = card.generateCard();
-      if (cardElement) {
-        cardsContainer.append(cardElement);
-      }
-    });
-    
-  } catch (error) {
-    console.error('Error al renderizar tarjetas:', error);
-  }
-}
 function handleAddCardSubmit(formData) {
   popupAddCard.renderLoading(true);
   api.addCard(formData)
     .then((cardData) => {
-      createCard(cardData);
+      const card =  createCard(cardData);
+      cardSection.addItem(card)
       popupAddCard.close();
     })
     .catch(console.error)
@@ -153,7 +109,7 @@ function handleDeleteCard(cardId) {
     .finally(() => popupConfirmDelete.renderLoading(false));
 }
 
-function handleLikeCard(cardId) {
+function handleLikeCard(cardId,card) {
   const cardElement = document.querySelector(`[data-card-id="${cardId}"]`);
   const likeButton = cardElement?.querySelector('.gallery__card-button');
   
@@ -168,7 +124,8 @@ function handleLikeCard(cardId) {
 
   (isLiked ? api.unlikeCard(cardId) : api.likeCard(cardId))
     .then((cardData) => {
-      // ... manejo de éxito ...
+     card._likes = cardData.isLiked
+     card._updateLikesView()
     })
     .catch(console.error)
     .finally(() => {
@@ -188,21 +145,16 @@ function createCard(cardData) {
   return card.generateCard();
 }
 
-// Configuración de la sección de tarjetas
 const cardSection = new Section({
-  items: [], // Array inicial vacío (se poblará con la API)
+  items: [], 
   renderer: (item) => {
     const cardElement = createCard(item);
-    cardSection.addItem(cardElement);
+    return cardElement;
   }
-}, '.gallery'); // '.gallery' es el selector del contenedor
+}, '.gallery'); 
 
-// Luego cuando cargas datos:
-api.getInitialCards()
-  .then(cards => {
-    cardSection.renderItems (cards); // Esto usa Section
-  });
-   
+
+
 // Carga inicial
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
@@ -217,27 +169,30 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   })
   .catch(console.error);
 
+
+
 // Editar perfil
 document.querySelector('.profile__info-edit-button').addEventListener('click', () => {
   const userData = userInfo.getUserInfo();
-  //popupEditProfile.setInputValues
   ({
     name: userData.name,
     about: userData.description
   });
-  editFormValidator.resetValidation(); // Resetea validación al abrir
+  editFormValidator.resetValidation(); 
   popupEditProfile.open();
 });
 
+
+
 // Añadir tarjeta
 document.querySelector('.profile__info-add-button').addEventListener('click', () => {
-  addFormValidator.resetValidation(); // Resetea validación al abrir
+  addFormValidator.resetValidation();
   popupAddCard.open();
 });
 
 // Editar avatar
 document.querySelector('.profile__photo-container').addEventListener('click', () => {
-  avatarFormValidator.resetValidation(); // Resetea validación al abrir
+  avatarFormValidator.resetValidation(); 
   popupEditAvatar.open();
 });
 

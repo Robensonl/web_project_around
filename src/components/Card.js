@@ -11,15 +11,11 @@ export class Card {
     this._data = data;
     this._name = data.name;
     this._link = data.link;
-    this._likes = data.likes || [];
+    this._likes = data.isLiked;
     this._id = data._id;
     this._ownerId = data.owner._id;
-    
-    // Configuración del usuario y template
     this._userId = userId;
     this._templateSelector = templateSelector;
-    
-    // Manejadores de eventos
     this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -58,7 +54,7 @@ export class Card {
 
   
   isLiked() {
-    return this._likes.some(user => user._id === this._userId);
+    return this._likes;
   }
 
   
@@ -89,7 +85,6 @@ export class Card {
 
   
   _setupVisibility() {
-    // Mostrar botón de eliminar solo si es el dueño
     if (this._ownerId !== this._userId) {
       this._deleteButton.remove();
       this._deleteButton = null;
@@ -97,9 +92,7 @@ export class Card {
   }
 
   
-  _updateLikesView() {
-    this._likeCount.textContent = this._likes.length;
-    
+  _updateLikesView() {    
     if (this.isLiked()) {
       this._likeButton.classList.add('gallery__card-button_active');
     } else {
@@ -109,19 +102,17 @@ export class Card {
 
   
   _setEventListeners() {
-    // Like button
     this._likeButton.addEventListener('click', () => {
-      this._handleLikeClick(this._id);
+      this._handleLikeClick(this._id, this);
     });
-
-    // Delete button (si existe)
+    
     if (this._deleteButton) {
       this._deleteButton.addEventListener('click', () => {
         this._handleDeleteClick(this._id);
       });
     }
 
-    // Click en la imagen
+    
     this._cardImage.addEventListener('click', () => {
       this._handleCardClick({ name: this._name, link: this._link });
     });

@@ -1,6 +1,3 @@
-/**
- * Clase base para popups - Maneja funcionalidad común
- */
 export class Popup {
   
   constructor(popupSelector) {

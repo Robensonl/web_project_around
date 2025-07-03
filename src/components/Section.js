@@ -1,9 +1,9 @@
 export class Section {
  
   constructor({ items, renderer }, containerSelector) {
-    this._items = items || []; // Array de datos iniciales
-    this._renderer = renderer; // Función que crea y renderiza cada elemento
-    this._container = document.querySelector(containerSelector); // Contenedor DOM
+    this._items = items || []; 
+    this._renderer = renderer; 
+    this._container = document.querySelector(containerSelector); 
   }
 
   renderItems(cards) {
@@ -16,15 +16,13 @@ export class Section {
   
   addItem(element, prepend = false) {
     if (prepend) {
-      this._container.prepend(element); // Agrega al inicio
+      this._container.prepend(element); 
     } else {
-      this._container.append(element); // Agrega al final
+      this._container.append(element); 
     }
   }
 
-  /**
-   * Limpia el contenedor eliminando todos los elementos
-   */
+  
   clear() {
     this._container.innerHTML = '';
   }
